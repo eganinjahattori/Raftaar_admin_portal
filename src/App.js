@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Dashboard from './screens/Dashboard';
+import Verandah from './screens/Verandah';
 import Login from './screens/Login';
 
 function App() {
@@ -16,11 +17,18 @@ function App() {
     )
   }
   else {
-    return (
-      <div className="App">
-        <Dashboard />
-      </div>
-    );
+    if(window.location.pathname == '/')
+      return (
+        <div className="App">
+          <Dashboard />
+        </div>
+      );
+    else if(window.location.pathname == '/verandah')
+      return (
+        <div className="App">
+          <Verandah />
+        </div>
+      );
   }
 }
 

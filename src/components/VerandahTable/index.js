@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import './style.css'
 
-const Table = () => {
+const VerandahTable = () => {
     const [customer, setCustomer] = useState([]);
     const [fromDate, setFromDate] = useState([]);
     const [toDate, setToDate] = useState([]);
 
     useEffect(() => {
         // fetch('https://raftaarcheckin.herokuapp.com/customer/all')
-        fetch('http://18.217.196.171:7070/customer/all')
-        // fetch('http://localhost:7070/customer/all')
+        fetch('http://18.217.196.171:7070/customer/all/verandah')
+        // fetch('http://localhost:7070/customer/all/verandah')
             .then(res => {
                 return res.json();
             })
@@ -37,7 +37,7 @@ const Table = () => {
 
     return (
         <div class="container-fluid">
-            <h4>Raftaar Customer Data</h4>
+            <h4>Verandah Customer Data</h4>
             {/* <span>Filters: </span>
             <input onChange={(val) => handleFromDate(val)} placeholder="From Date(YYYY-MM-DD)" class="table_component_filter_date" /> 
             <input onChange={(val) => handleToDate(val)} placeholder="To Date(YYYY-MM-DD)" class="table_component_filter_date" />
@@ -75,4 +75,4 @@ const Table = () => {
     )
 };
 
-export default Table;
+export default VerandahTable;
