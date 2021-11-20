@@ -7,7 +7,8 @@ const Table = () => {
     const [toDate, setToDate] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:9800/customer/all')
+        // fetch('https://raftaarcheckin.herokuapp.com/customer/all')
+        fetch('http://18.217.196.171:7070/customer/all')
             .then(res => {
                 return res.json();
             })

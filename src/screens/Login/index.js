@@ -12,7 +12,10 @@ const Login = () => {
     }
     const handleLoginSubmit = async() => {
         const data = {email, password};
-        const response = await fetch('https://raftaarcheckin.herokuapp.com/user/login', {
+        const response = await 
+        // fetch('https://raftaarcheckin.herokuapp.com/user/login'
+        fetch('http://18.217.196.171:7070/user/login'
+        , {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, *cors, same-origin
             headers: {
