@@ -39,7 +39,7 @@ const VerandahTable = () => {
         <div class="container-fluid">
             <h3>Verandah Customer Data</h3>
             <br />
-            <a href="http://localhost:7070/export/csv/verandah" target="_blank" class="btn btn-primary btn-md exportcsv_button">Export CSV</a>
+            <a href="http://18.217.196.171:7070/export/csv/verandah" target="_blank" class="btn btn-primary btn-md exportcsv_button">Export CSV</a>
             {/* <a href="http://localhost:7070/export/data/verandah" target="_blank" class="btn btn-primary btn-md exportcsv_button">Export Data</a> */}
             <br /><br />
             {/* <span>Filters: </span>

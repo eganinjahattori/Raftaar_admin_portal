@@ -8,8 +8,8 @@ const Table = () => {
 
     useEffect(() => {
         // fetch('https://raftaarcheckin.herokuapp.com/customer/all')
-        // fetch('http://18.217.196.171:7070/customer/all')
-        fetch('http://localhost:7070/customer/all')
+        fetch('http://18.217.196.171:7070/customer/all')
+        // fetch('http://localhost:7070/customer/all')
             .then(res => {
                 return res.json();
             })

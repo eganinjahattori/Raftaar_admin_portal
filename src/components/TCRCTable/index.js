@@ -8,8 +8,8 @@ const TCRCTable = () => {
 
     useEffect(() => {
         // fetch('https://raftaarcheckin.herokuapp.com/customer/all')
-        // fetch('http://18.217.196.171:7070/customer/all')
-        fetch('http://localhost:7070/customer/all/tcrc')
+        fetch('http://18.217.196.171:7070/customer/all/tcrc')
+        // fetch('http://localhost:7070/customer/all/tcrc')
             .then(res => {
                 return res.json();
             })
@@ -43,7 +43,7 @@ const TCRCTable = () => {
         fromDate = fromDate + " 00:00:00";
         toDate = toDate + " 23:59:59";
         if(fromDate.split('-').length == 3 && toDate.split('-').length == 3)
-            window.open(`http://localhost:7070/export/csv/tcrc?fromDate=${fromDate}&toDate=${toDate}`,'_blank')
+            window.open(`http://18.217.196.171:7070/export/csv/tcrc?fromDate=${fromDate}&toDate=${toDate}`,'_blank')
         else   
             window.alert("Date Range is not in the right format");
         // 'http://localhost:7070/export/csv/raftaar'
@@ -58,7 +58,7 @@ const TCRCTable = () => {
         fromDate = fromDate + " 00:00:00";
         toDate = toDate + " 23:59:59";
         if(fromDate.split('-').length == 3 && toDate.split('-').length == 3)
-            window.open(`http://localhost:7070/export/data/tcrc?fromDate=${fromDate}&toDate=${toDate}`,'_blank')
+            window.open(`http://18.217.196.171:7070/export/data/tcrc?fromDate=${fromDate}&toDate=${toDate}`,'_blank')
         else   
             window.alert("Date Range is not in the right format");
         // 'http://localhost:7070/export/data/raftaar'
