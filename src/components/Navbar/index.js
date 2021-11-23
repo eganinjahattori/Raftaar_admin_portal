@@ -23,6 +23,9 @@ const Navbar = () => {
                         <a class="nav-link" href="/verandah">Verandah</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/tcrc">TCRC</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#" onClick={handleLogout}>Log out</a>
                     </li>
                 </ul>

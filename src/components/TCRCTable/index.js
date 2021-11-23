@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import './style.css'
 
-const VerandahTable = () => {
+const TCRCTable = () => {
     const [customer, setCustomer] = useState([]);
     const [fromDate, setFromDate] = useState([]);
     const [toDate, setToDate] = useState([]);
 
     useEffect(() => {
         // fetch('https://raftaarcheckin.herokuapp.com/customer/all')
-        fetch('http://18.217.196.171:7070/customer/all/verandah')
-        // fetch('http://localhost:7070/customer/all/verandah')
+        // fetch('http://18.217.196.171:7070/customer/all')
+        fetch('http://localhost:7070/customer/all/tcrc')
             .then(res => {
                 return res.json();
             })
@@ -32,15 +32,46 @@ const VerandahTable = () => {
     const handleDateRangeSubmit = () => {
         console.log("Submitted");
     }
-    
 
+    
+    const handleExportCSV = async () => {
+        const date = window.prompt("Please Enter Date Range(YY-MM-DD), Example: 2021-11-21,2021-11-23 ");
+        // console.log(date);
+        let fromDate = date.split(',')[0].trim();
+        let toDate = date.split(',')[1].trim();
+        console.log(fromDate,toDate);
+        fromDate = fromDate + " 00:00:00";
+        toDate = toDate + " 23:59:59";
+        if(fromDate.split('-').length == 3 && toDate.split('-').length == 3)
+            window.open(`http://localhost:7070/export/csv/tcrc?fromDate=${fromDate}&toDate=${toDate}`,'_blank')
+        else   
+            window.alert("Date Range is not in the right format");
+        // 'http://localhost:7070/export/csv/raftaar'
+    }
+
+    const handleExportData = async () => {
+        const date = window.prompt("Please Enter Date Range(YY-MM-DD), Example: 2021-11-21,2021-11-23 ");
+        // console.log(date);
+        let fromDate = date.split(',')[0].trim();
+        let toDate = date.split(',')[1].trim();
+        console.log(fromDate,toDate);
+        fromDate = fromDate + " 00:00:00";
+        toDate = toDate + " 23:59:59";
+        if(fromDate.split('-').length == 3 && toDate.split('-').length == 3)
+            window.open(`http://localhost:7070/export/data/tcrc?fromDate=${fromDate}&toDate=${toDate}`,'_blank')
+        else   
+            window.alert("Date Range is not in the right format");
+        // 'http://localhost:7070/export/data/raftaar'
+    }
 
     return (
         <div class="container-fluid">
-            <h3>Verandah Customer Data</h3>
+            <h3>TCRC Customer Data</h3>
             <br />
-            <a href="http://localhost:7070/export/csv/verandah" target="_blank" class="btn btn-primary btn-md exportcsv_button">Export CSV</a>
-            {/* <a href="http://localhost:7070/export/data/verandah" target="_blank" class="btn btn-primary btn-md exportcsv_button">Export Data</a> */}
+            <input value="Export CSV" class="btn btn-primary btn-md exportcsv_button" onClick={handleExportCSV} />
+            <input value="Export Data" class="btn btn-primary btn-md" onClick={handleExportData} />
+            {/* <a href="http://localhost:7070/export/csv/tcrc" target="_blank" class="btn btn-primary btn-md exportcsv_button">Export CSV</a>
+            <a href="http://localhost:7070/export/data/tcrc" target="_blank" class="btn btn-primary btn-md exportcsv_button">Export Data</a> */}
             <br /><br />
             {/* <span>Filters: </span>
             <input onChange={(val) => handleFromDate(val)} placeholder="From Date(YYYY-MM-DD)" class="table_component_filter_date" /> 
@@ -64,11 +95,11 @@ const VerandahTable = () => {
                             return (
                                 <tr>
                                     <th scope="row">{i}</th>
-                                    <td>{cust.name}</td>
+                                    <td><b>{cust.name}</b></td>
                                     <td>{cust.phone}</td>
                                     <td>{cust.pegs}</td>
                                     <td>{cust.floor}</td>
-                                    <td>{cust.visiting_date.substr(0, 10)}</td>
+                                    <td>{cust.dateString}</td>
                                 </tr>
                             )
                         })
@@ -79,4 +110,4 @@ const VerandahTable = () => {
     )
 };
 
-export default VerandahTable;
+export default TCRCTable;

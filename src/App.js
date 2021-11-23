@@ -3,9 +3,9 @@ import './App.css';
 import Dashboard from './screens/Dashboard';
 import Verandah from './screens/Verandah';
 import Login from './screens/Login';
+import TCRC from './screens/TCRC';
 
 function App() {
-
   let auth = window.localStorage.getItem("auth");
   if (auth == null || auth == undefined || auth.length == 0) {
     return (
@@ -27,6 +27,12 @@ function App() {
       return (
         <div className="App">
           <Verandah />
+        </div>
+      );
+      else if(window.location.pathname == '/tcrc')
+      return (
+        <div className="App">
+          <TCRC />
         </div>
       );
   }
