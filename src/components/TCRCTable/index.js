@@ -83,9 +83,10 @@ const TCRCTable = () => {
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Phone</th>
-                        <th scope="col">No of Pegs</th>
+                        <th scope="col">No of People</th>
                         <th scope="col">Floor</th>
                         <th scope="col">Visiting Date(YYYY-MM-DD)</th>
+                        <th scope="col">Type</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -99,7 +100,8 @@ const TCRCTable = () => {
                                     <td>{cust.phone}</td>
                                     <td>{cust.pegs}</td>
                                     <td>{cust.floor}</td>
-                                    <td>{cust.dateString}</td>
+                                    <td>{new Date(cust.visiting_date).toString().substr(0,25)}</td>
+                                    <td>{cust.type?cust.type:"NA"}</td>
                                 </tr>
                             )
                         })
