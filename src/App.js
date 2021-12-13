@@ -4,6 +4,7 @@ import Dashboard from './screens/Dashboard';
 import Verandah from './screens/Verandah';
 import Login from './screens/Login';
 import TCRC from './screens/TCRC';
+import Step from './screens/Step'
 
 function App() {
   let auth = window.localStorage.getItem("auth");
@@ -33,6 +34,12 @@ function App() {
       return (
         <div className="App">
           <TCRC />
+        </div>
+      );
+      else if(window.location.pathname == '/step')
+      return (
+        <div className="App">
+          <Step />
         </div>
       );
   }

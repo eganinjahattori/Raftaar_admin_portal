@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import './style.css'
 
-const Table = () => {
+const StepTable = () => {
     const [customer, setCustomer] = useState([]);
     const [fromDate, setFromDate] = useState([]);
     const [toDate, setToDate] = useState([]);
 
     useEffect(() => {
         // fetch('https://raftaarcheckin.herokuapp.com/customer/all')
-        fetch('http://18.217.196.171:7070/customer/all')
-        // fetch('http://18.217.196.171:7070/step/all')
+        // fetch('http://18.217.196.171:7070/customer/all')
+        fetch('http://18.217.196.171:7070/step/all')
             .then(res => {
                 return res.json();
             })
@@ -113,4 +113,4 @@ const Table = () => {
     )
 };
 
-export default Table;
+export default StepTable;

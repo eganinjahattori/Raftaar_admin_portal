@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Navbar = () => {
+const NavbarStep = () => {
 
     const handleLogout = () => {
         window.localStorage.setItem("auth","");
@@ -17,13 +17,7 @@ const Navbar = () => {
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/">Raftaar <span class="sr-only"></span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/verandah">Verandah</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/tcrc">TCRC</a>
+                        <a class="nav-link" href="/">Step <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" onClick={handleLogout}>Log out</a>
@@ -35,4 +29,4 @@ const Navbar = () => {
     );
 }
 
-export default Navbar;
+export default NavbarStep;
