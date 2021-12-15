@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# SB Admin 2 (React Version)
+> React version SB Admin 2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Under Construction** <br/>
+A React version of admin template [SB Admin 2](https://startbootstrap.com/themes/sb-admin-2/) created by [Start Bootstrap](https://startbootstrap.com).
 
-## Available Scripts
+## Getting Start
 
-In the project directory, you can run:
+```bash
+git clone https://github.com/luizhfraraujo/sb-admin-2-react.git
+cd sb-admin-2-react
+yarn install
+yarn start
+```
 
-### `npm start`
+If you want another name of your project, clone the repo with the name. Ex: `git clone https://github.com/luizhfraraujo/sb-admin-2-react.git myawesomeproject`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Components
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* Cards
+    * CardBasic
+    * CardInfo (Dashboard cards)
+    * CardDefault
+    * CardCollapse
+    * CardDropdown
+* Charts
+    * ChartDonut
+    * ChartLine
+    * ChartBar
+* Navigation
+    * Topbar
+    * Sidebar
+* PageHeading
 
-### `npm test`
+## Themming
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You can edit the theme styles using scss files locate in styles folder.
 
-### `npm run build`
+## Creator
+This theme was created by Blackrock Digital to Start Bootstrap
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* **Blackrock Digital** - [Github][blackrock-github]
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Authors
+Peoples who working on react version
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* **Luiz Araújo** - [Github][luizhfraraujo-github]
 
-### `npm run eject`
+## License
+[MIT](https://github.com/BlackrockDigital/startbootstrap-sb-admin-2/blob/gh-pages/LICENSE)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<!-- Markdown link & img -->
+[blackrock-github]: https://github.com/BlackrockDigital
+[luizhfraraujo-github]: https://github.com/luizhfraraujo
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[charts-custom]: https://blog.bitsrc.io/customizing-chart-js-in-react-2199fa81530a
+[react-redux]:https://medium.com/reactbrasil/iniciando-com-redux-c14ca7b7dcf
+[entendendo-react-redux]:https://medium.com/@hliojnior_34681/entenda-react-e-redux-de-uma-vez-por-todas-c761bc3194ca

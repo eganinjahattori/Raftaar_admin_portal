@@ -1,0 +1,39 @@
+#customerdata_table_card_body {
+    padding: 0px !important;
+}
+/* thead, tbody { display: block;  width: 100%;}
+table{
+    width: 100%;
+}
+tbody {
+    height: 100px;       
+    overflow-y: auto;    
+    width: 100%;
+} */
+/* tbody tr:nth-child(odd) {
+    background-color: #1cc88a !important;
+    color: white;
+    font-weight: 600;
+}
+
+
+tbody tr:nth-child(even) {
+    color: black;
+    font-weight: 600;
+} */
+thead tr {
+    background-color: #1cc88a !important;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+}
+tbody tr{
+    color:black;
+    font-weight: 600;
+}
+i.fas{
+    cursor: pointer;
+}
+tr td{
+    padding: 6px !important;
+}
