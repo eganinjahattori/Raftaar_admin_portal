@@ -11,13 +11,14 @@ class SignIn extends Component {
       loadingText: 'Loading...',
       animation: null
     }
-    if (window.localStorage.getItem('authorized') == "true") {
-      window.location.replace('/dashboard')
-    }
+    
   }
 
   componentWillMount () {
     document.getElementById('body').className = 'bg-gradient-primary'
+    if (window.localStorage.getItem('authorized') == "true") {
+      this.props.history.push('/dashboard')
+    }
   }
 
   handleSignIn = () => {
@@ -49,7 +50,7 @@ class SignIn extends Component {
 
   sendLoginRequest = async () => {
     fetch(
-      `http://localhost:7070/users/login?username=${this.state.username}&password=${this.state.password}`
+      `http://18.217.196.171:7070/users/login?username=${this.state.username}&password=${this.state.password}`
     )
       .then(res => {
         return res.json()

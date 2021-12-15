@@ -30,7 +30,7 @@ class DataTable extends React.Component {
   fetchUserData = async () => {
     this.setState({ data: null })
     fetch(
-      `http://localhost:7070/dashboard/customer/list?startDate=${
+      `http://18.217.196.171:7070/dashboard/customer/list?startDate=${
         this.state.start
       }&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}&limit=${
         this.state.limit
@@ -53,14 +53,14 @@ class DataTable extends React.Component {
 
   exportContacts = async () => {
     window.open(
-      `http://localhost:7070/download/export/contacts?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`,
+      `http://18.217.196.171:7070/download/export/contacts?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`,
       '_blank'
     )
   }
 
   exportData = async () => {
     window.open(
-      `http://localhost:7070/download/export/data?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`,
+      `http://18.217.196.171:7070/download/export/data?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`,
       '_blank'
     )
   }

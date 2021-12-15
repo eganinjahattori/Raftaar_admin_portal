@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 //Navigation
 import Sidebar from '../../components/Navigation/Sidebar'
 import Topbar from '../../components/Navigation/Topbar'
@@ -33,7 +33,7 @@ class Dashboard extends React.Component {
     //FETCH AND UPDATE THE STATE FOR TOTAL CHECKINS
     fetch(
       // `https://raftaarnewdashbackend.herokuapp.com/dashboard/checkin/count?startDate=${this.state.start}&endDate=${this.state.end}&table=customer`
-      `http://localhost:7070/dashboard/checkin/count?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`
+      `http://18.217.196.171:7070/dashboard/checkin/count?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`
     )
       .then(res => {
         return res.json()
@@ -48,7 +48,7 @@ class Dashboard extends React.Component {
     //FETCH AND UPDATE THE STATE FOR TOTAL CUSTOMERS
     fetch(
       // `https://raftaarnewdashbackend.herokuapp.com/dashboard/checkin/count?startDate=${this.state.start}&endDate=${this.state.end}&table=customer`
-      `http://localhost:7070/dashboard/customer/count?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`
+      `http://18.217.196.171:7070/dashboard/customer/count?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`
     )
       .then(res => {
         return res.json()
@@ -65,7 +65,7 @@ class Dashboard extends React.Component {
     //FETCH AND UPDATE THE STATE FOR TOTAL CATEGORIES
     fetch(
       // `https://raftaarnewdashbackend.herokuapp.com/dashboard/checkin/count?startDate=${this.state.start}&endDate=${this.state.end}&table=customer`
-      `http://localhost:7070/dashboard/customer/reservation/type?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`
+      `http://18.217.196.171:7070/dashboard/customer/reservation/type?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`
     )
       .then(res => {
         return res.json()
@@ -117,7 +117,7 @@ class Dashboard extends React.Component {
 
   downloadMetricsReport = async () => {
     window.open(
-      `http://localhost:7070/download/export/metrics?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}&checkin=${this.state.totalcheckin}&people=${this.state.totalcustomer}&walkin=${this.state.categories.walkin}&zomato=${this.state.categories.zomato}&reser=${this.state.categories.reser}&dineout=${this.state.categories.dineout}`,
+      `http://18.217.196.171:7070/download/export/metrics?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}&checkin=${this.state.totalcheckin}&people=${this.state.totalcustomer}&walkin=${this.state.categories.walkin}&zomato=${this.state.categories.zomato}&reser=${this.state.categories.reser}&dineout=${this.state.categories.dineout}`,
       '_blank'
     )
   }
@@ -259,12 +259,12 @@ class Dashboard extends React.Component {
                   ) : null}
                 </div>
                 <br />
-                <a href='/data/table' target='_blank'>
+                <Link className='nav-link' to='/data/table'>
                   View Customer Data Table
                   <sup>
                     <i class='fas fa-location-arrow'></i>
                   </sup>
-                </a>
+                </Link>
                 <br />
                 <br />
                 <br />
