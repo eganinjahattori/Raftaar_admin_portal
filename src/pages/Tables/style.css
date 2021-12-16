@@ -37,3 +37,14 @@ i.fas{
 tr td{
     padding: 6px !important;
 }
+
+table {
+    display: table;
+    overflow-x: auto;
+    /* white-space: nowrap; */
+}
+
+table tbody {
+    /* display: table; */
+    width: 100% !important;
+}

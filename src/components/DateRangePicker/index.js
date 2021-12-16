@@ -40,7 +40,7 @@ class DateRangeComponent extends React.Component {
           }
         }}
       >
-        <button class='btn btn-success'>Choose Dates: ( {this.props.displayStart} - {this.props.displayEnd} )</button>
+        <button class='btn btn-success btn-sm'>Choose Dates: ( {this.props.displayStart} - {this.props.displayEnd} )</button>
       </DateRangePicker>
     )
   }

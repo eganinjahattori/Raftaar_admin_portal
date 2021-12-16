@@ -32,9 +32,10 @@ class DataTable extends React.Component {
     fetch(
       `http://18.217.196.171:7070/dashboard/customer/list?startDate=${
         this.state.start
-      }&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}&limit=${
-        this.state.limit
-      }&counter=${this.state.counter * this.state.limit}`
+      }&endDate=${this.state.end}&table=${window.localStorage.getItem(
+        'tableName'
+      )}&limit=${this.state.limit}&counter=${this.state.counter *
+        this.state.limit}`
     )
       .then(res => {
         return res.json()
@@ -53,14 +54,22 @@ class DataTable extends React.Component {
 
   exportContacts = async () => {
     window.open(
-      `http://18.217.196.171:7070/download/export/contacts?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`,
+      `http://18.217.196.171:7070/download/export/contacts?startDate=${
+        this.state.start
+      }&endDate=${this.state.end}&table=${window.localStorage.getItem(
+        'tableName'
+      )}`,
       '_blank'
     )
   }
 
   exportData = async () => {
     window.open(
-      `http://18.217.196.171:7070/download/export/data?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`,
+      `http://18.217.196.171:7070/download/export/data?startDate=${
+        this.state.start
+      }&endDate=${this.state.end}&table=${window.localStorage.getItem(
+        'tableName'
+      )}`,
       '_blank'
     )
   }
@@ -91,52 +100,44 @@ class DataTable extends React.Component {
                 <br />
                 <br />
                 {/* <!-- Page Heading --> */}
-                <div style={{ display: 'flex', flexDirection: 'row' }}>
-                  <div>
+                <div className='row'>
+                  <div className='col-lg-4 col-md-3 col-12'>
                     <PageHeading title='Customer Data' />
                   </div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      justifyItems: 'flex-end'
-                    }}
-                  >
-                    {this.state.start != null && this.state.end != null ? (
-                      <div style={{ marginLeft: '30px' }}>
-                        <DateRangeComponent
-                          displayStart={this.state.start}
-                          displayEnd={this.state.end}
-                          onApplyDate={async (start, end) => {
-                            this.setState({
-                              start: getDateFormatForAPICall(start, end)[0],
-                              end: getDateFormatForAPICall(start, end)[1]
-                            })
-                            this.fetchUserData()
-                          }}
-                        />
-                      </div>
-                    ) : null}
 
-                    <div
-                      style={{ marginLeft: '30px' }}
-                      onClick={this.exportContacts}
-                    >
-                      <DownloadButton
-                        buttonClassName='btn btn-outline-info'
-                        title='Download Contacts'
+                  {this.state.start != null && this.state.end != null ? (
+                    <div className='col-lg-4 col-md-5 col-12'>
+                      <DateRangeComponent
+                        displayStart={this.state.start}
+                        displayEnd={this.state.end}
+                        onApplyDate={async (start, end) => {
+                          this.setState({
+                            start: getDateFormatForAPICall(start, end)[0],
+                            end: getDateFormatForAPICall(start, end)[1]
+                          })
+                          this.fetchUserData()
+                        }}
                       />
+                      <br /><br />
                     </div>
-                    <div
-                      style={{ marginLeft: '30px' }}
-                      onClick={this.exportData}
-                    >
-                      <DownloadButton
-                        buttonClassName='btn btn-outline-info'
-                        title='Download Data Report'
-                      />
-                    </div>
+                  ) : null}
+
+                  <div
+                    className='col-lg-2 col-md-2 col-12'
+                    onClick={this.exportContacts}
+                  >
+                    <DownloadButton
+                      buttonClassName='btn btn-outline-info btn-sm'
+                      title='Download Contacts'
+                    />
+                    <br /><br />
+                  </div>
+                  <div className='col-lg-2 col-md-2 col-12'>
+                    <DownloadButton
+                      buttonClassName='btn btn-outline-info btn-sm'
+                      title='Download Report'
+                    />
+                    <br /><br />
                   </div>
                 </div>
                 {/* <!-- Content Row --> */}
@@ -184,7 +185,7 @@ class DataTable extends React.Component {
               <div className='container my-auto'>
                 <div className='copyright text-center my-auto'>
                   <span>
-                    Copyright &copy; StepCRM {new Date().getFullYear()}
+                    Copyright &copy; <a href="/">StepCRM</a> {new Date().getFullYear()}
                   </span>
                 </div>
               </div>

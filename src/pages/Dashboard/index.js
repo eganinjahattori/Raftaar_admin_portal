@@ -33,7 +33,11 @@ class Dashboard extends React.Component {
     //FETCH AND UPDATE THE STATE FOR TOTAL CHECKINS
     fetch(
       // `https://raftaarnewdashbackend.herokuapp.com/dashboard/checkin/count?startDate=${this.state.start}&endDate=${this.state.end}&table=customer`
-      `http://18.217.196.171:7070/dashboard/checkin/count?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`
+      `http://18.217.196.171:7070/dashboard/checkin/count?startDate=${
+        this.state.start
+      }&endDate=${this.state.end}&table=${window.localStorage.getItem(
+        'tableName'
+      )}`
     )
       .then(res => {
         return res.json()
@@ -48,7 +52,11 @@ class Dashboard extends React.Component {
     //FETCH AND UPDATE THE STATE FOR TOTAL CUSTOMERS
     fetch(
       // `https://raftaarnewdashbackend.herokuapp.com/dashboard/checkin/count?startDate=${this.state.start}&endDate=${this.state.end}&table=customer`
-      `http://18.217.196.171:7070/dashboard/customer/count?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`
+      `http://18.217.196.171:7070/dashboard/customer/count?startDate=${
+        this.state.start
+      }&endDate=${this.state.end}&table=${window.localStorage.getItem(
+        'tableName'
+      )}`
     )
       .then(res => {
         return res.json()
@@ -65,7 +73,11 @@ class Dashboard extends React.Component {
     //FETCH AND UPDATE THE STATE FOR TOTAL CATEGORIES
     fetch(
       // `https://raftaarnewdashbackend.herokuapp.com/dashboard/checkin/count?startDate=${this.state.start}&endDate=${this.state.end}&table=customer`
-      `http://18.217.196.171:7070/dashboard/customer/reservation/type?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}`
+      `http://18.217.196.171:7070/dashboard/customer/reservation/type?startDate=${
+        this.state.start
+      }&endDate=${this.state.end}&table=${window.localStorage.getItem(
+        'tableName'
+      )}`
     )
       .then(res => {
         return res.json()
@@ -117,7 +129,17 @@ class Dashboard extends React.Component {
 
   downloadMetricsReport = async () => {
     window.open(
-      `http://18.217.196.171:7070/download/export/metrics?startDate=${this.state.start}&endDate=${this.state.end}&table=${window.localStorage.getItem('tableName')}&checkin=${this.state.totalcheckin}&people=${this.state.totalcustomer}&walkin=${this.state.categories.walkin}&zomato=${this.state.categories.zomato}&reser=${this.state.categories.reser}&dineout=${this.state.categories.dineout}`,
+      `http://18.217.196.171:7070/download/export/metrics?startDate=${
+        this.state.start
+      }&endDate=${this.state.end}&table=${window.localStorage.getItem(
+        'tableName'
+      )}&checkin=${this.state.totalcheckin}&people=${
+        this.state.totalcustomer
+      }&walkin=${this.state.categories.walkin}&zomato=${
+        this.state.categories.zomato
+      }&reser=${this.state.categories.reser}&dineout=${
+        this.state.categories.dineout
+      }`,
       '_blank'
     )
   }
@@ -142,43 +164,39 @@ class Dashboard extends React.Component {
               {/* <!-- Begin Page Content --> */}
               <div className='container-fluid'>
                 {/* <!-- Page Heading --> */}
-                <div style={{ display: 'flex', flexDirection: 'row' }}>
-                  <div>
+                <div className='row'>
+                  <div className='col-lg-3 col-md-3 col-12'>
                     <PageHeading title='Metrics Data' />
+                    
                   </div>
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      justifyItems: 'flex-end'
-                    }}
-                  >
-                    {this.state.start != null && this.state.end != null ? (
-                      <div style={{ marginLeft: '30px' }}>
-                        <DateRangeComponent
-                          displayStart={this.state.start}
-                          displayEnd={this.state.end}
-                          onApplyDate={async (start, end) => {
-                            this.setState({
-                              start: getDateFormatForAPICall(start, end)[0],
-                              end: getDateFormatForAPICall(start, end)[1]
-                            })
-                            this.fetchCheckinData()
-                          }}
-                        />
-                      </div>
-                    ) : null}
 
-                    <div
-                      style={{ marginLeft: '30px' }}
-                      onClick={this.downloadMetricsReport}
-                    >
-                      <DownloadButton
-                        buttonClassName='btn btn-outline-info'
-                        title='Download Metrics Report'
+                  {this.state.start != null && this.state.end != null ? (
+                    <div className="col-lg-7 col-md-5 col-12">
+                      <DateRangeComponent
+                        displayStart={this.state.start}
+                        displayEnd={this.state.end}
+                        onApplyDate={async (start, end) => {
+                          this.setState({
+                            start: getDateFormatForAPICall(start, end)[0],
+                            end: getDateFormatForAPICall(start, end)[1]
+                          })
+                          this.fetchCheckinData()
+                        }}
                       />
+                      <br /><br />
                     </div>
+                    
+                  ) : null}
+
+                  <div
+                     className="col-lg-2 col-md-4 col-12"
+                    onClick={this.downloadMetricsReport}
+                  >
+                    <DownloadButton
+                      buttonClassName='btn btn-outline-info btn-sm'
+                      title='Download Metrics'
+                    />
+                    <br /><br />
                   </div>
                 </div>
                 {/* <!-- Content Row --> */}
@@ -278,7 +296,7 @@ class Dashboard extends React.Component {
               <div className='container my-auto'>
                 <div className='copyright text-center my-auto'>
                   <span>
-                    Copyright &copy; StepCRM {new Date().getFullYear()}
+                    Copyright &copy; <a href="/">StepCRM</a> {new Date().getFullYear()}
                   </span>
                 </div>
               </div>

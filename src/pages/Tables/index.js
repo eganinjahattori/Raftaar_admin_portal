@@ -7,7 +7,7 @@ const Table = props => {
       <div className='card-header py-3'>
         <h6 className='m-0 font-weight-bold text-primary'>Customer Data</h6>
       </div>
-      <div className='card-body' id='customerdata_table_card_body'>
+      <div className='card-body' id='customerdata_table_card_body' style={{overflowX: 'auto'}}>
         <table class='table table-striped'>
           <thead>
             <tr>
