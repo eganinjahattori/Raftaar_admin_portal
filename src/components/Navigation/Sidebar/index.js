@@ -96,11 +96,11 @@ class Sidebar extends Component {
           </Link>
         </li>
         <li className='nav-item'>
-          <Link className='nav-link' to='/comingsoon'>
+          <Link className='nav-link' to='/charts'>
             <i
               className='fas fa-fw fa-chart-area'
               id={
-                window.location.pathname == '/comingsoon' ? 'activeNav' : null
+                window.location.pathname == '/charts' ? 'activeNav' : null
               }
             ></i>
             <span>Charts</span>

@@ -12,6 +12,7 @@ import DateRangeComponent from '../../components/DateRangePicker'
 import DownloadButton from '../../components/DownloadButton'
 
 import { getDateFormatForAPICall } from '../../utils/DateUtils'
+import './style.css'
 
 class Dashboard extends React.Component {
   constructor () {
@@ -21,7 +22,8 @@ class Dashboard extends React.Component {
       totalcustomer: null,
       categories: null,
       start: getDateFormatForAPICall(new Date(), new Date())[0],
-      end: getDateFormatForAPICall(new Date(), new Date())[1]
+      end: getDateFormatForAPICall(new Date(), new Date())[1],
+      newFeature: new Date('2021/12/26')
     }
     this.fetchCheckinData = this.fetchCheckinData.bind(this)
     this.downloadMetricsReport = this.downloadMetricsReport.bind(this)
@@ -117,13 +119,6 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount = async () => {
-    setTimeout(() => {
-      this.setState({ totalcustomer: 234 })
-    }, 2000)
-    setTimeout(() => {
-      this.setState({ categories: [234, 234, 22, 466] })
-    }, 3000)
-    console.log(this.state)
     this.fetchCheckinData()
   }
 
@@ -159,6 +154,17 @@ class Dashboard extends React.Component {
             <div id='content'>
               {/* <!-- Topbar --> */}
               <Topbar />
+
+              {/* LOGIC TO HIDE THE NEW FEATURE RELEASE AFTER A CERTAIN DATE   */}
+              {new Date() < this.state.newFeature ? (
+                <Link className='nav-link' to='/charts'>
+                  <button className='newFeatureAlert btn btn-sm'>
+                    Graphs Feature Released Now !! Click here.
+                  </button>
+                </Link>
+              ) : null}
+
+
               {/* <!-- End of Topbar --> */}
 
               {/* <!-- Begin Page Content --> */}
@@ -167,11 +173,10 @@ class Dashboard extends React.Component {
                 <div className='row'>
                   <div className='col-lg-3 col-md-3 col-12'>
                     <PageHeading title='Metrics Data' />
-                    
                   </div>
 
                   {this.state.start != null && this.state.end != null ? (
-                    <div className="col-lg-7 col-md-5 col-12">
+                    <div className='col-lg-7 col-md-5 col-12'>
                       <DateRangeComponent
                         displayStart={this.state.start}
                         displayEnd={this.state.end}
@@ -183,20 +188,21 @@ class Dashboard extends React.Component {
                           this.fetchCheckinData()
                         }}
                       />
-                      <br /><br />
+                      <br />
+                      <br />
                     </div>
-                    
                   ) : null}
 
                   <div
-                     className="col-lg-2 col-md-4 col-12"
+                    className='col-lg-2 col-md-4 col-12'
                     onClick={this.downloadMetricsReport}
                   >
                     <DownloadButton
                       buttonClassName='btn btn-outline-info btn-sm'
                       title='Download Metrics'
                     />
-                    <br /><br />
+                    <br />
+                    <br />
                   </div>
                 </div>
                 {/* <!-- Content Row --> */}
@@ -211,8 +217,8 @@ class Dashboard extends React.Component {
                       data={['Total Checkins']}
                     />
                   ) : (
-                    <div class='spinner-border text-primary' role='status'>
-                      <span class='sr-only'>Loading...</span>
+                    <div className='spinner-border text-primary' role='status'>
+                      <span className='sr-only'>Loading...</span>
                     </div>
                   )}
 
@@ -226,8 +232,8 @@ class Dashboard extends React.Component {
                       data={['Total People']}
                     />
                   ) : (
-                    <div class='spinner-border text-primary' role='status'>
-                      <span class='sr-only'>Loading...</span>
+                    <div className='spinner-border text-primary' role='status'>
+                      <span className='sr-only'>Loading...</span>
                     </div>
                   )}
 
@@ -241,8 +247,8 @@ class Dashboard extends React.Component {
                       data={['Walkin']}
                     />
                   ) : (
-                    <div class='spinner-border text-primary' role='status'>
-                      <span class='sr-only'>Loading...</span>
+                    <div className='spinner-border text-primary' role='status'>
+                      <span className='sr-only'>Loading...</span>
                     </div>
                   )}
                   {this.state.categories != null ? (
@@ -280,7 +286,7 @@ class Dashboard extends React.Component {
                 <Link className='nav-link' to='/data/table'>
                   View Customer Data Table
                   <sup>
-                    <i class='fas fa-location-arrow'></i>
+                    <i className='fas fa-location-arrow'></i>
                   </sup>
                 </Link>
                 <br />
@@ -296,7 +302,8 @@ class Dashboard extends React.Component {
               <div className='container my-auto'>
                 <div className='copyright text-center my-auto'>
                   <span>
-                    Copyright &copy; <a href="/">StepCRM</a> {new Date().getFullYear()}
+                    Copyright &copy; <a href='/'>StepCRM</a>{' '}
+                    {new Date().getFullYear()}
                   </span>
                 </div>
               </div>

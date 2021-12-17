@@ -11,7 +11,6 @@ export const getDateFormatForAPICall = (start, end) => {
   ]
   const startDate = startYear + '-' + startMonth + '-' + startDay
   const endDate = endYear + '-' + endMonth + '-' + endDay
-  console.log(startMonth, endMonth)
   return [startDate, endDate]
 }
 

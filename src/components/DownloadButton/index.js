@@ -7,7 +7,7 @@ class DownloadButton extends React.Component {
   render () {
     return (
       <>
-        <button className={this.props.buttonClassName}>{this.props.title} <i class="fas fa-arrow-circle-down"></i></button>
+        <button className={this.props.buttonClassName}>{this.props.title} <i className="fas fa-arrow-circle-down"></i></button>
       </>
     )
   }

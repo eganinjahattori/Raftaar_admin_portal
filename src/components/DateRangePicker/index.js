@@ -5,12 +5,8 @@ import moment from 'moment'
 class DateRangeComponent extends React.Component {
   constructor (props) {
     super(props)
-    console.log(props)
     this.handleCallback = this.handleCallback.bind(this)
   }
-  //   handleEvent (event, picker) {
-  //     console.log(picker.startDate)
-  //   }
   handleCallback (start, end, label) {
     this.props.onApplyDate(start._d, end._d)
   }
@@ -40,7 +36,7 @@ class DateRangeComponent extends React.Component {
           }
         }}
       >
-        <button class='btn btn-success btn-sm'>Choose Dates: ( {this.props.displayStart} - {this.props.displayEnd} )</button>
+        <button className='btn btn-success btn-sm'>Choose Dates: ( {this.props.displayStart} - {this.props.displayEnd} )</button>
       </DateRangePicker>
     )
   }

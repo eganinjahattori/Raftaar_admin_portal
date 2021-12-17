@@ -1,8 +1,8 @@
 import React from 'react'
-
+import Topbar from '../../components/Navigation/Topbar'
 //Navigation
 import Sidebar from '../../components/Navigation/Sidebar'
-
+import { Link } from 'react-router-dom'
 import PageHeading from '../../components/PageHeading'
 
 import Table from '../Tables'
@@ -11,6 +11,8 @@ import DateRangeComponent from '../../components/DateRangePicker'
 import DownloadButton from '../../components/DownloadButton'
 
 import { getDateFormatForAPICall } from '../../utils/DateUtils'
+
+import './style.css'
 
 class DataTable extends React.Component {
   constructor (props) {
@@ -21,7 +23,8 @@ class DataTable extends React.Component {
       data: null,
       limit: 10,
       counter: 0,
-      paginationResult: 0
+      paginationResult: 0,
+      newFeature: new Date('2021/12/26')
     }
     this.fetchUserData = this.fetchUserData.bind(this)
     this.exportContacts = this.exportContacts.bind(this)
@@ -41,7 +44,6 @@ class DataTable extends React.Component {
         return res.json()
       })
       .then(data => {
-        console.log(data)
         this.setState({
           data: data.data.result,
           paginationResult: data.data.paginationResult
@@ -92,13 +94,24 @@ class DataTable extends React.Component {
             {/* <!-- Main Content --> */}
             <div id='content'>
               {/* <!-- Topbar --> */}
-              {/* <Topbar /> */}
+              <Topbar />
+
+              {/* LOGIC TO HIDE THE NEW FEATURE RELEASE AFTER A CERTAIN DATE   */}
+              {new Date() < this.state.newFeature ? (
+                <Link className='nav-link' to='/charts'>
+                  <button className='newFeatureAlert btn btn-sm'>
+                    Graphs Feature Released Now !! Click here.
+                  </button>
+                </Link>
+              ) : null}
+
+              
               {/* <!-- End of Topbar --> */}
 
               {/* <!-- Begin Page Content --> */}
               <div className='container-fluid'>
-                <br />
-                <br />
+                {/* <br />
+                <br /> */}
                 {/* <!-- Page Heading --> */}
                 <div className='row'>
                   <div className='col-lg-4 col-md-3 col-12'>
@@ -113,12 +126,17 @@ class DataTable extends React.Component {
                         onApplyDate={async (start, end) => {
                           this.setState({
                             start: getDateFormatForAPICall(start, end)[0],
-                            end: getDateFormatForAPICall(start, end)[1]
+                            end: getDateFormatForAPICall(start, end)[1],
+                            limit: 10,
+                            counter: 0,
+                            paginationResult: 0
                           })
+
                           this.fetchUserData()
                         }}
                       />
-                      <br /><br />
+                      <br />
+                      <br />
                     </div>
                   ) : null}
 
@@ -130,14 +148,16 @@ class DataTable extends React.Component {
                       buttonClassName='btn btn-outline-info btn-sm'
                       title='Download Contacts'
                     />
-                    <br /><br />
+                    <br />
+                    <br />
                   </div>
                   <div className='col-lg-2 col-md-2 col-12'>
                     <DownloadButton
                       buttonClassName='btn btn-outline-info btn-sm'
                       title='Download Report'
                     />
-                    <br /><br />
+                    <br />
+                    <br />
                   </div>
                 </div>
                 {/* <!-- Content Row --> */}
@@ -185,7 +205,8 @@ class DataTable extends React.Component {
               <div className='container my-auto'>
                 <div className='copyright text-center my-auto'>
                   <span>
-                    Copyright &copy; <a href="/">StepCRM</a> {new Date().getFullYear()}
+                    Copyright &copy; <a href='/'>StepCRM</a>{' '}
+                    {new Date().getFullYear()}
                   </span>
                 </div>
               </div>

@@ -1,14 +1,13 @@
 import React from 'react'
 import './style.css'
 const Table = props => {
-  console.log(props)
   return (
     <div className='card shadow mb-4'>
       <div className='card-header py-3'>
         <h6 className='m-0 font-weight-bold text-primary'>Customer Data</h6>
       </div>
       <div className='card-body' id='customerdata_table_card_body' style={{overflowX: 'auto'}}>
-        <table class='table table-striped'>
+        <table className='table table-striped'>
           <thead>
             <tr>
               <th scope='col'>#</th>
@@ -50,12 +49,12 @@ const Table = props => {
               })}
             </tbody>
           ) : (
-            <div class='spinner-border text-primary' role='status'>
-              <span class='sr-only'>Loading...</span>
+            <div className='spinner-border text-primary' role='status'>
+              <span className='sr-only'>Loading...</span>
             </div>
           )}
           {props.data && props.data.length == 0 ? (
-            <span class='text-danger'>
+            <span className='text-danger'>
               No Data to display for the selected dates
             </span>
           ) : null}
@@ -66,7 +65,8 @@ const Table = props => {
         style={{
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          flexWrap: 'wrap'
         }}
       >
         <div>
