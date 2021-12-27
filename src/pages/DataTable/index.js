@@ -151,7 +151,7 @@ class DataTable extends React.Component {
                     <br />
                     <br />
                   </div>
-                  <div className='col-lg-2 col-md-2 col-12'>
+                  <div className='col-lg-2 col-md-2 col-12' onClick={this.exportData}>
                     <DownloadButton
                       buttonClassName='btn btn-outline-info btn-sm'
                       title='Download Report'
