@@ -38,12 +38,12 @@ class Charts extends Component {
 
     //FETCH AND UPDATE THE STATE FOR TOTAL CHECKINS
     fetch(
-      `http://18.217.196.171:7070/dashboard/customer/graph/checkin?startDate=${
+      `http://3.143.169.167:7070/dashboard/customer/graph/checkin?startDate=${
         this.state.start
       }&endDate=${this.state.end}&table=${window.localStorage.getItem(
         'tableName'
       )}`
-      // `http://18.217.196.171:7070/dashboard/checkin/count?startDate=${
+      // `http://3.143.169.167:7070/dashboard/checkin/count?startDate=${
       //   this.state.start
       // }&endDate=${this.state.end}&table=${window.localStorage.getItem(
       //   'tableName'
@@ -60,12 +60,12 @@ class Charts extends Component {
       })
 
     fetch(
-      `http://18.217.196.171:7070/dashboard/customer/graph/people?startDate=${
+      `http://3.143.169.167:7070/dashboard/customer/graph/people?startDate=${
         this.state.start
       }&endDate=${this.state.end}&table=${window.localStorage.getItem(
         'tableName'
       )}`
-      // `http://18.217.196.171:7070/dashboard/checkin/count?startDate=${
+      // `http://3.143.169.167:7070/dashboard/checkin/count?startDate=${
       //   this.state.start
       // }&endDate=${this.state.end}&table=${window.localStorage.getItem(
       //   'tableName'
@@ -82,12 +82,12 @@ class Charts extends Component {
       })
 
     fetch(
-      `http://18.217.196.171:7070/dashboard/customer/graph/reservation?startDate=${
+      `http://3.143.169.167:7070/dashboard/customer/graph/reservation?startDate=${
         this.state.start
       }&endDate=${this.state.end}&table=${window.localStorage.getItem(
         'tableName'
       )}`
-      // `http://18.217.196.171:7070/dashboard/checkin/count?startDate=${
+      // `http://3.143.169.167:7070/dashboard/checkin/count?startDate=${
       //   this.state.start
       // }&endDate=${this.state.end}&table=${window.localStorage.getItem(
       //   'tableName'
@@ -104,12 +104,12 @@ class Charts extends Component {
       })
 
     fetch(
-      `http://18.217.196.171:7070/dashboard/customer/graph/age?startDate=${
+      `http://3.143.169.167:7070/dashboard/customer/graph/age?startDate=${
         this.state.start
       }&endDate=${this.state.end}&table=${window.localStorage.getItem(
         'tableName'
       )}`
-      // `http://18.217.196.171:7070/dashboard/checkin/count?startDate=${
+      // `http://3.143.169.167:7070/dashboard/checkin/count?startDate=${
       //   this.state.start
       // }&endDate=${this.state.end}&table=${window.localStorage.getItem(
       //   'tableName'

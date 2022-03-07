@@ -50,7 +50,7 @@ class SignIn extends Component {
 
   sendLoginRequest = async () => {
     fetch(
-      `http://18.217.196.171:7070/users/login?username=${this.state.username}&password=${this.state.password}`
+      `http://3.143.169.167:7070/users/login?username=${this.state.username}&password=${this.state.password}`
     )
       .then(res => {
         return res.json()

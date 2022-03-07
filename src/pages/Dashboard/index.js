@@ -35,7 +35,7 @@ class Dashboard extends React.Component {
     //FETCH AND UPDATE THE STATE FOR TOTAL CHECKINS
     fetch(
       // `https://raftaarnewdashbackend.herokuapp.com/dashboard/checkin/count?startDate=${this.state.start}&endDate=${this.state.end}&table=customer`
-      `http://18.217.196.171:7070/dashboard/checkin/count?startDate=${
+      `http://3.143.169.167:7070/dashboard/checkin/count?startDate=${
         this.state.start
       }&endDate=${this.state.end}&table=${window.localStorage.getItem(
         'tableName'
@@ -54,7 +54,7 @@ class Dashboard extends React.Component {
     //FETCH AND UPDATE THE STATE FOR TOTAL CUSTOMERS
     fetch(
       // `https://raftaarnewdashbackend.herokuapp.com/dashboard/checkin/count?startDate=${this.state.start}&endDate=${this.state.end}&table=customer`
-      `http://18.217.196.171:7070/dashboard/customer/count?startDate=${
+      `http://3.143.169.167:7070/dashboard/customer/count?startDate=${
         this.state.start
       }&endDate=${this.state.end}&table=${window.localStorage.getItem(
         'tableName'
@@ -75,7 +75,7 @@ class Dashboard extends React.Component {
     //FETCH AND UPDATE THE STATE FOR TOTAL CATEGORIES
     fetch(
       // `https://raftaarnewdashbackend.herokuapp.com/dashboard/checkin/count?startDate=${this.state.start}&endDate=${this.state.end}&table=customer`
-      `http://18.217.196.171:7070/dashboard/customer/reservation/type?startDate=${
+      `http://3.143.169.167:7070/dashboard/customer/reservation/type?startDate=${
         this.state.start
       }&endDate=${this.state.end}&table=${window.localStorage.getItem(
         'tableName'
@@ -124,7 +124,7 @@ class Dashboard extends React.Component {
 
   downloadMetricsReport = async () => {
     window.open(
-      `http://18.217.196.171:7070/download/export/metrics?startDate=${
+      `http://3.143.169.167:7070/download/export/metrics?startDate=${
         this.state.start
       }&endDate=${this.state.end}&table=${window.localStorage.getItem(
         'tableName'
