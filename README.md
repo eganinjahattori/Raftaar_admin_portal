@@ -1,4 +1,4 @@
-This dashboard is legacy now.
+This dashboard is legacy now. The bootstrap react admin dashbaord didn't have all the required components
 
 # SB Admin 2 (React Version)
 > React version SB Admin 2
