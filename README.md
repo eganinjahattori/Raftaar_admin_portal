@@ -1,3 +1,5 @@
+This dashboard is legacy now.
+
 # SB Admin 2 (React Version)
 > React version SB Admin 2
 
